@@ -1,0 +1,99 @@
+/* 背景 */
+body {
+    font-family: 'MinecraftAE', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-primary) 50%, var(--bg-primary) 100%);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 通用卡片样式 */
+.card,
+.project-card,
+.contact-card,
+.project-description,
+.resourcepack-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.project-card:hover,
+.contact-card:hover,
+.project-description:hover,
+.resourcepack-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px var(--shadow);
+    transform: translateY(-10px);
+}
+
+/* 卡片渐变边框效果 */
+.card,
+.project-card,
+.project-description,
+.resourcepack-card {
+    position: relative;
+}
+
+.card::before,
+.project-card::before,
+.project-description::before,
+.resourcepack-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(90deg, transparent, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.card:hover::before,
+.project-card:hover::before,
+.project-description:hover::before,
+.resourcepack-card:hover::before {
+    background: linear-gradient(90deg, #52a6ff, #0048ff, #52a6ff);
+    background-size: 300%;
+    animation: borderGradient 3s linear infinite;
+}
+
+@keyframes borderGradient {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* 卡片标题渐变效果 */
+.card h3,
+.project-card h3,
+.project-description h3,
+.resourcepack-card h3 {
+    color: #7CABFF;
+    transition: all 0.3s ease;
+}
+
+.card:hover h3,
+.project-card:hover h3,
+.project-description:hover h3,
+.resourcepack-card:hover h3 {
+    background: linear-gradient(90deg, #52a6ff, #0048ff, #52a6ff);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: cardTitleGradient 3s linear infinite;
+}
+
+@keyframes cardTitleGradient {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}

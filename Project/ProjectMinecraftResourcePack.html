@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 资源包 - M1ckey</title>
+    <style>
+        @font-face {
+            font-family: 'MinecraftAE';
+            src: url('../Font/MinecraftAE.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'MinecraftBold';
+            src: url('../Font/MinecraftBold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* 主内容区 */
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 5% 120px 230px;
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #7CABFF;
+        }
+
+        /* 资源包列表 */
+        .resourcepack-list {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7CABFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: #5a9aff;
+            transform: translateX(-5px);
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            color: #7CABFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #b8b8d1;
+            font-size: 1rem;
+        }
+
+        .resourcepack-card {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .resourcepack-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resourcepack-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: rgba(124, 171, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .resourcepack-icon img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+        }
+
+        .resourcepack-info {
+            flex: 1;
+        }
+
+        .resourcepack-info h3 {
+            font-size: 1.3rem;
+            color: #7CABFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .resourcepack-info p {
+            color: #b8b8d1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .resourcepack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tag {
+            background: rgba(124, 171, 255, 0.2);
+            color: #7CABFF;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .resourcepack-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .resourcepack-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .resourcepack-meta img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+
+        .resourcepack-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #7CABFF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .resourcepack-link:hover {
+            color: #5a9aff;
+            transform: translateX(5px);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .resourcepack-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .resourcepack-tags,
+            .resourcepack-meta {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/logo.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+</head>
+<body>
+    <script src="../js/navbar.js"></script>
+
+    <main>
+        <div class="resourcepack-list">
+            
+            <div class="page-header">
+                <h1>Minecraft 资源包</h1>
+                <p>浏览所有可用的 Minecraft 资源包，点击查看详情或下载</p>
+            </div>
+
+            <div class="resourcepack-card">
+                <div class="resourcepack-icon">
+                    <img src="../Icon\ProjectMinecraftResourcePack\ProjectMinecraftResourcePack021526.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>少羽牛逼</h3>
+                    <p>更改剑的材质为筷子，弓为 UZI ，箭为 9 毫米子弹，金苹果为水泥，喷溅型药水为医疗包。</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">PVP</span>
+                        <span class="tag">简约</span>
+                        <span class="tag">抽象</span>
+                        <span class="tag">物品</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 128x</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-02-15</span>
+                    </div>
+                    <a href="https://developer-oss.lanrar.com/file/?AGZWaAs6U2IACQA4Cj9VOVdoVGwEmQKnAmlQswbqAJBXlQb2DiEDlVGgVmMClF37V2EG5F++Ue4GwwOiU20A5gCJVpoLv1OHAOoAeAokVT1XfVR3BD0CaQJpUDMGBQBoVzMGbA5hA2BRMFYyAm9da1c+BjVfNVF1BmcDdlMyADMAMVYyC2ZTMwBuAGQKeFUkV31UbARpAjACN1BgBnUAMVdkBn4OYwNgUShWNwJgXW1XawY0X2FRagY5AzJTawAzADRWYgs3Uz8AMgA3CmtVMldvVDcEbAIzAjRQNwY7ADlXZgZjDmADNFEwVi4CLF01V30GJV91USAGZAN3U2YAZQA9VjQLZlMyAGMAYAptVWBXK1QlBDICbQJgUDAGZwAwV2AGZg5hA29RPlY5Am5dalc6Bi1fLlF1BmcDaVN4ADwAMFYnCyNTdwAhAGsKb1VjVzpUYwRjAjkCPVBlBmMAOVdxBiQOOgMnUTpWMgJkXW1XIwYxXzJRZgYvAzdTPgAyAC5WNwtvUykAcAAyCjFVI1djVA4EOAJrAjhQZgZ0ACdXIwYoDiMDMlFYVnUCN11hVz0=&toolsdown" class="resourcepack-link" data-tooltip="点击下载此资源包" target="_blank"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+            <div class="resourcepack-card">
+                <div class="resourcepack-icon">
+                    <img src="../Icon\ProjectMinecraftResourcePack\ProjectMinecraftResourcePack021026.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Black&amp;White Pack</h3>
+                    <p>黑白材质包，使用后变成色盲。</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">PVP</span>
+                        <span class="tag">简约</span>
+                        <span class="tag">黑白</span>
+                        <span class="tag">全覆盖</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-02-10</span>
+                    </div>
+                    <a href="https://developer-oss.lanrar.com/file/?BWNTbV1sBzZRWFZuU2ZWOgE+Bj5WRFcwAndRJQUgUikIcgZxAB8ONgE2BjMBPl15UTkCMQM9BWoFcgc6Aj8DbwV1Uz9dVwc7UW5WdFNiVncBCwZiVmpXPgIrUS0FMFIjCC4GNwA0DjYBMgYPATxdOFE2AjUDawUwBTEHMQJvAzAFMFMyXSYHNVF0Vj1TNlZmAWsGNFY7V2cCMFFhBX9SIwh4BmwAbw5qAWUGZgF6XWxROAIoA2wFPwUtBzgCZgNgBWRTNV1lBzBRP1YxUzZWYQFoBmZWa1czAmZRbwU4UjcIMQYyAD4ObgFlBjIBZl1vUTsCMwNoBWUFMgcvAiQDawV1UyJddQcgUWJWclNuVjMBZgY2VjlXYAIwUWEFalJnCC4GJQA0DjcBMgY2AWhdbVE8AjADbgU+BTIHNAJvAzEFNFMqXS4HdVFhVmxTcFZqAWsGJVZ8VyUCclFqBWhSZAg/BmMAZA5qAWQGZgFjXWhRLQJyAzUFdwU/BzMCbAMzBStTNl0yB2ZRKVYyUzZWZAF1BjVWMFd7AiNRMwU2UiQIZgYOAD4OMQFqBmABe116UX8CfgMsBWIFXQd0Aj8DPwU1&toolsdown" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+            <div class="resourcepack-card">
+                <div class="resourcepack-icon">
+                    <img src="../Icon\ProjectMinecraftResourcePack\ProjectMinecraftResourcePack011726.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Anxiety</h3>
+                    <p>细剑，透明 GUI，原版风格 PVP 材质包。</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">PVP</span>
+                        <span class="tag">优化</span>
+                        <span class="tag">细剑</span>
+                        <span class="tag">全覆盖</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-01-17</span>
+                    </div>
+                    <a href="https://developer-oss.lanrar.com/file/?UDZWaA8+VGVWXwM7Cj8BbVNsDzcEegQmUXZTdVMvB8QCpQdoDBBQalJ8UW4AMVQhV3QAJVfKV/IBYFJlUTtXLlB+VnsPO1RwViYDMwo3AWxTbA9VBDIEYlFrU2dTOAcxAjEHYAxjUDNSMVEyAHJUM1d+ADhXOVdnATJSYFE1V2FQY1YwD3RUcFZwA2gKbAEwUzsPPAR0BDZRZVN6Uz8HPgItB2EMaFA2UjdRZgA1VGFXbABgV25XbQEzUmZRbFdjUGJWYg9mVDBWMgNiCmoBN1MxDzMEYwQwUTNTZVNtBzQCZAd+DCtQbVJ0USEAIVQmV2gAd1dhVzEBO1JhUT1XY1BlVjcPYVQ0ViYDIQo3AW1TbA9sBGYEN1FhU2JTPQc/AjIHaAxiUDZSMFEpAHpUc1drAGlXf1doATZSclF4VyZQJ1Y8D2NUN1Y3A2cKZwEwUz8PMgRpBDRRcFMgU2YHdgI/B2IMY1A1UipRNQBmVGBXIwA3VzlXZgEoUmJRNFd4UHZWZQ89VHdWbgMKCj0Ba1M0DzoEdQQgUSJTLFN/B2MCXQclDDBQOVI0&toolsdown" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+    </main>
+
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function updatePosition() {
+            let left = mouseX + 15;
+            let top = mouseY - tooltip.offsetHeight - 10;
+
+            // 右边界检测
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = mouseX - tooltip.offsetWidth - 15;
+            }
+
+            // 左边界检测
+            if (left < 0) {
+                left = 10;
+            }
+
+            // 上边界检测
+            if (top < 0) {
+                top = mouseY + 20;
+            }
+
+            // 下边界检测
+            if (top + tooltip.offsetHeight > window.innerHeight) {
+                top = window.innerHeight - tooltip.offsetHeight - 10;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                tooltip.textContent = e.target.dataset.tooltip;
+                tooltip.classList.add('visible');
+                updatePosition();
+            });
+
+            element.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+
+            element.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                updatePosition();
+            });
+        });
+    </script>
+</body>
+</html>

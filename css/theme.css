@@ -1,0 +1,62 @@
+/* 重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 深色主题变量 */
+:root {
+    --bg-primary: #0D142A;
+    --bg-secondary: rgba(13, 20, 42, 0.9);
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8d1;
+    --text-muted: #666;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --accent: #7CABFF;
+    --accent-hover: #5a9aff;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* 浅色主题变量 */
+[data-theme="light"] {
+    --bg-primary: #F5F5F7;
+    --bg-secondary: #F5F5F7;
+    --bg-card: rgb(255, 255, 255);
+    --bg-card-hover: rgb(255, 255, 255);
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #888;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --accent: #4a90d9;
+    --accent-hover: #3a7bc8;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+}
+
+.theme-toggle-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    object-fit: contain;
+}

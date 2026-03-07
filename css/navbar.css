@@ -1,0 +1,125 @@
+/* 导航栏 */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-intro {
+    text-align: center;
+    flex: 1;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 10px rgba(82, 166, 255, 0.5);
+    animation: textGradient 5s ease-in-out infinite;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a.active {
+    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 10px rgba(82, 166, 255, 0.5);
+    animation: textGradient 2s ease-in-out infinite;
+}
+
+.nav-links a:hover {
+    background: linear-gradient(90deg, #84bfff, var(--text-primary), var(--text-primary), #84bfff) !important;
+    background-size: 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 0 10px rgba(132, 191, 255, 0.5) !important;
+    animation: hoverGradient 2s ease-in-out infinite !important;
+}
+
+@keyframes hoverGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes textGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes titleGradient {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #84bfff, var(--text-primary), var(--text-primary), #84bfff);
+    background-size: 200%;
+    box-shadow: 0 0 8px rgba(132, 191, 255, 0.6);
+    transition: width 0.3s ease;
+}
+
+.nav-links a.active::after {
+    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background-size: 200%;
+}
+
+.nav-links a:hover::after {
+    background: linear-gradient(90deg, #84bfff, var(--text-primary), var(--text-primary), #84bfff) !important;
+    background-size: 200% !important;
+    animation: lineGradient 2s ease-in-out infinite !important;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+    animation: lineGradient 2s ease-in-out infinite;
+}
+
+@keyframes lineGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}

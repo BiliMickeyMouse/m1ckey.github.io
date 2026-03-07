@@ -1,0 +1,18 @@
+/* Logo */
+.logo {
+    font-family: 'MinecraftBold', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    animation: logoGradient 5s linear infinite;
+}
+
+@keyframes logoGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+}

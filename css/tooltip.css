@@ -1,0 +1,42 @@
+/* 悬停框 */
+.tooltip {
+    position: fixed;
+    padding: 0.8rem 1.2rem;
+    background: rgba(10, 0, 25, 0.9);
+    color: #fff;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: none;
+    z-index: 10000;
+    max-width: 280px;
+    box-shadow: 0 0 0 2px #000, 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tooltip.visible {
+    opacity: 1;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    padding: 2px;
+    background: linear-gradient(90deg, #0D1A45, #1A2D5E, #0D1A45);
+    background-size: 200% 100%;
+    animation: tooltipBorder 2s ease-in-out infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+@keyframes tooltipBorder {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}

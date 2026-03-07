@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目 - M1ckey</title>
+    <style>
+        @font-face {
+            font-family: 'MinecraftAE';
+            src: url('Font/MinecraftAE.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'MinecraftBold';
+            src: url('Font/MinecraftBold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* 主内容区 */
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 120px 5% 120px 230px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #7CABFF;
+        }
+
+        /* 项目卡片 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .project-card {
+            text-align: left;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            color: #b8b8d1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(124, 171, 255, 0.2);
+            color: #7CABFF;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #7CABFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #5a9aff;
+            transform: translateX(5px);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+</head>
+<body>
+    <script src="js/navbar.js"></script>
+
+    <main>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-icon"><img src="Icon/ProjectMinecraftResourcePack.png" alt="Minecraft 资源包" style="width: 64px; height: 64px; object-fit: contain;"></div>
+                <h3>Minecraft 资源包</h3>
+                <p>自定义 Minecraft 材质包，包含独特的视觉风格和优化的游戏体验。</p>
+                <div class="project-tags">
+                    <span class="tag">Minecraft</span>
+                    <span class="tag">材质</span>
+                    <span class="tag">创意</span>
+                </div>
+                <a href="Project/ProjectMinecraftResourcePack.html" class="project-link">查看详情 →</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon"><img src="Icon/ProjectPersonalWebsite.png" alt="个人网站" style="width: 64px; height: 64px; object-fit: contain;"></div>
+                <h3>个人网站</h3>
+                <p>这个网站本身就是一个项目！现代化个人主页。</p>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">设计</span>
+                </div>
+                <a href="Project/ProjectPersonalWebsite.html" class="project-link">查看详情 →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function updatePosition() {
+            let left = mouseX + 15;
+            let top = mouseY - tooltip.offsetHeight - 10;
+
+            // 右边界检测
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = mouseX - tooltip.offsetWidth - 15;
+            }
+
+            // 左边界检测
+            if (left < 0) {
+                left = 10;
+            }
+
+            // 上边界检测
+            if (top < 0) {
+                top = mouseY + 20;
+            }
+
+            // 下边界检测
+            if (top + tooltip.offsetHeight > window.innerHeight) {
+                top = window.innerHeight - tooltip.offsetHeight - 10;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                tooltip.textContent = e.target.dataset.tooltip;
+                tooltip.classList.add('visible');
+                updatePosition();
+            });
+
+            element.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+
+            element.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                updatePosition();
+            });
+        });
+    </script>
+</body>
+</html>

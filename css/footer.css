@@ -1,0 +1,46 @@
+/* 页脚 */
+footer {
+    position: relative;
+    width: 100%;
+    padding: 1rem 5%;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px var(--shadow);
+    z-index: 1000;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: left;
+}

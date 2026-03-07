@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页 - M1ckey</title>
+    <style>
+        @font-face {
+            font-family: 'MinecraftAE';
+            src: url('Font/MinecraftAE.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'MinecraftBold';
+            src: url('Font/MinecraftBold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* 主内容区 */
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5% 100px;
+            text-align: center;
+        }
+
+        .hero {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #fff, #7CABFF, #5a9aff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(124, 171, 255, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(124, 171, 255, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #b8b8d1;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* 按钮样式 */
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-family: 'MinecraftAE', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7CABFF, #5a9aff);
+            color: white;
+            box-shadow: 0 4px 20px rgba(124, 171, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(124, 171, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #7CABFF;
+            border: 2px solid #7CABFF;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(124, 171, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* 卡片区域 */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+</head>
+<body>
+    <script src="js/navbar.js"></script>
+
+    <main id="home">
+        <section class="hero">
+            <h1>M1ckey_</h1>
+            <p>欢迎来到我的个人主页，这里记录着我的创意与代码之旅。探索、创造、分享。</p>
+            <div class="btn-group">
+                <a href="project.html" class="btn btn-primary">查看项目</a>
+                <a href="contactme.html" class="btn btn-secondary">联系</a>
+            </div>
+        </section>
+
+        <div class="cards" id="about">
+            <div class="card">
+                <div class="card-icon"><img src="Icon/IndexDesign.png" alt="设计" style="width: 48px; height: 48px; object-fit: contain;"></div>
+                <h3>设计</h3>
+                <p>追求简洁优雅的视觉体验，创造令人愉悦的用户界面。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="Icon/IndexDevelop.png" alt="开发" style="width: 48px; height: 48px; object-fit: contain;"></div>
+                <h3>开发</h3>
+                <p>热爱编程，持续学习新技术，将创意转化为现实。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="Icon/IndexInnovation.png" alt="创新" style="width: 48px; height: 48px; object-fit: contain;"></div>
+                <h3>创新</h3>
+                <p>不断探索新领域，挑战自我，追求卓越。</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/footer.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function updatePosition() {
+            let left = mouseX + 15;
+            let top = mouseY - tooltip.offsetHeight - 10;
+
+            // 右边界检测
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = mouseX - tooltip.offsetWidth - 15;
+            }
+
+            // 左边界检测
+            if (left < 0) {
+                left = 10;
+            }
+
+            // 上边界检测
+            if (top < 0) {
+                top = mouseY + 20;
+            }
+
+            // 下边界检测
+            if (top + tooltip.offsetHeight > window.innerHeight) {
+                top = window.innerHeight - tooltip.offsetHeight - 10;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                tooltip.textContent = e.target.dataset.tooltip;
+                tooltip.classList.add('visible');
+                updatePosition();
+            });
+
+            element.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+
+            element.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                updatePosition();
+            });
+        });
+    </script>
+</body>
+</html>

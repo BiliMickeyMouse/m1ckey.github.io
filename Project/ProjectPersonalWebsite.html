@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网站 - M1ckey</title>
+    <style>
+        @font-face {
+            font-family: 'MinecraftAE';
+            src: url('../Font/MinecraftAE.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'MinecraftBold';
+            src: url('../Font/MinecraftBold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* 主内容区 */
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 5% 120px 230px;
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #7CABFF;
+        }
+
+        /* 项目详情 */
+        .project-detail {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-header img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .project-header h1 {
+            font-size: 2rem;
+            color: #7CABFF;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(124, 171, 255, 0.2);
+            color: #7CABFF;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-description {
+            margin-bottom: 2rem;
+        }
+
+        .project-description h2 {
+            font-size: 1.2rem;
+            color: #7CABFF;
+            margin-bottom: 1rem;
+        }
+
+        .project-description p {
+            color: #b8b8d1;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .project-description ul {
+            color: #b8b8d1;
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7CABFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: #5a9aff;
+            transform: translateX(-5px);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .project-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/logo.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+</head>
+<body>
+    <script src="../js/navbar.js"></script>
+
+    <main>
+        <div class="project-detail">
+            
+            <div class="project-header">
+                <img src="../Icon/ProjectPersonalWebsite.png" alt="个人网站">
+                <h1>个人网站</h1>
+            </div>
+
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">AI</span>
+                <span class="tag">设计</span>
+                <span class="tag">响应式</span>
+            </div>
+
+            <div class="project-description">
+                <h2>项目简介</h2>
+                <p>这是一个使用 HTML CSS JS JavaScript 打造的现代化个人主页，展示了我的个人信息、项目作品以及联系方式。</p>
+                
+                <h2>技术特点</h2>
+                <ul>
+                    <li>HTML CSS JS JavaScript实现</li>
+                    <li>响应式设计，适配各种屏幕尺寸</li>
+                    <li>现代化 UI 设计，可切换主题</li>
+                    <li>流畅的动画效果和交互体验</li>
+                    <li>自定义字体支持</li>         
+                </ul>
+
+                <h2>项目亮点</h2>
+                <ul>
+                    <li>独特的深蓝色渐变主题</li>
+                    <li>毛玻璃效果的导航栏</li>
+                    <li>项目卡片悬停动画</li>
+                    <li>动态渐变文字效果</li>
+                    <li>智能提示框边界检测</li>
+                </ul>
+
+            </div><div class="project-description">
+                <h2>真の项目简介</h2>
+                <p>这是一个使用 AI 打造的破烂小网站，里面大多数内容都是 AI 编写的。(部分UI和文本人工手写+设计，包括这里的真简介)</p>
+                
+                <h2>真の技术特点</h2>
+                <ul>
+                    <li>AI 实现，不手写的主要原因是因为不会</li>
+                    <li>只有前端，没有后端，没有数据库，完美解决了大部分免费网站服务器不支持的问题</li>
+                    <li>Minecraft 风格 UI 设计，起初模仿 OreUI ，觉得效果不太好换回 AI 风格</li>
+                    <li>网站大部分字体用的是 Minecraft AE <a href="https://developer-oss.lanrar.com/file/?CG5aZFloBjcDCgA4Cz5TPwE+UmpVRwFqB25RMlRrVyRUNQY3WnMEcAGyV6wDwF24AOdQxlYnUytXOVIkUStUMwhhWmFZYQYNAzwAMgtiU2MBblJiVTwBNgc0UWVUPVdiVHIGN1p0BG0BZFc0A2VdbgBvUGFWOFN3VyBSJFEwVGcIOFo/WTAGfQNlAGcLcFNiAWpSeFU6ATsHYVFhVDhXY1QxBjJaMgRkATJXMgNkXWsAblAwVm9TYldpUmdRaFRjCDBaPFk8BmoDZABiCzpTZgFrUjRVJAF5B2lRJ1QuVyNUJwY0WnUEOQEzVzwDZV1oAGJQbFY/U2FXaFJyUXlUPAhlWmhZYgZvA2QAYQtoU2ABY1JuVT8BMwc0UW5UJld4VHIGN1prBCcBalcwA2BdawBoUG1WMVNmV2JSZlE+VHMIfVp9WXMGbwNkAGELb1NmAWpSZVU5ATYHNFFvVC5XI1Q9BiFaOgRiAWVXMAN5XW4AaFBgVidTY1dhUmdRI1RjCDFaI1kiBjYDOgAhCzFTDQE4UjxVNwEzBy5RcVR8Vy9UJAY0WlgEJQE2VzwDZw==" target="_blank" style="color: #7CABFF; text-decoration: none;">点我下载</a> (当然你也可以直接克隆这个项目获取) | <a href="https://www.bilibili.com/read/cv16197300/?opus_fallback=1" target="_blank" style="color: #7CABFF; text-decoration: none;">出处(原作者)</a></li>         
+                </ul>
+
+                <h2>作者 (按编写内容从多到少排序)</h2>
+                <ul>
+                <li>GLM-5.0</li>
+                <li>M1ckey_</li>
+                <li>Kimi-K2.5</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function updatePosition() {
+            let left = mouseX + 15;
+            let top = mouseY - tooltip.offsetHeight - 10;
+
+            // 右边界检测
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = mouseX - tooltip.offsetWidth - 15;
+            }
+
+            // 左边界检测
+            if (left < 0) {
+                left = 10;
+            }
+
+            // 上边界检测
+            if (top < 0) {
+                top = mouseY + 20;
+            }
+
+            // 下边界检测
+            if (top + tooltip.offsetHeight > window.innerHeight) {
+                top = window.innerHeight - tooltip.offsetHeight - 10;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                tooltip.textContent = e.target.dataset.tooltip;
+                tooltip.classList.add('visible');
+                updatePosition();
+            });
+
+            element.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+
+            element.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                updatePosition();
+            });
+        });
+    </script>
+</body>
+</html>
