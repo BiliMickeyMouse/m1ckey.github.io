@@ -8,9 +8,10 @@
 /* 深色主题变量 */
 :root {
     --bg-primary: #0D142A;
-    --bg-secondary: rgba(13, 20, 42, 0.9);
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    --bg-secondary: rgba(0, 0, 0, 0.9);
+    --bg-header: rgba(0, 0, 0, 0.5);
+    --bg-card: rgba(255, 255, 255, 0.15);
+    --bg-card-hover: rgba(255, 255, 255, 0.15);
     --text-primary: #ffffff;
     --text-secondary: #b8b8d1;
     --text-muted: #666;
@@ -18,14 +19,16 @@
     --accent: #7CABFF;
     --accent-hover: #5a9aff;
     --shadow: rgba(0, 0, 0, 0.3);
+    --overlay-color: rgba(0, 0, 0, 0.5);
 }
 
 /* 浅色主题变量 */
 [data-theme="light"] {
-    --bg-primary: #F5F5F7;
-    --bg-secondary: #F5F5F7;
-    --bg-card: rgb(255, 255, 255);
-    --bg-card-hover: rgb(255, 255, 255);
+    --bg-primary: rgba(255, 255, 255, 0.9);
+    --bg-secondary: rgba(255, 255, 255, 0.5);
+    --bg-header: rgba(245, 245, 247, 0.5);
+    --bg-card: rgba(255, 255, 255, 0.1);
+    --bg-card-hover: rgba(0, 0, 0, 0.3);
     --text-primary: #1a1a2e;
     --text-secondary: #4a4a6a;
     --text-muted: #888;
@@ -33,6 +36,7 @@
     --accent: #4a90d9;
     --accent-hover: #3a7bc8;
     --shadow: rgba(0, 0, 0, 0.1);
+    --overlay-color: rgba(150, 150, 150, 0.5);
 }
 
 /* 主题切换按钮 */

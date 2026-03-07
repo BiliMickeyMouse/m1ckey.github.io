@@ -7,7 +7,7 @@
     height: 100vh;
     padding: 2rem 1rem;
     padding-top: calc(70px + 2rem);
-    background: var(--bg-secondary);
+    background: var(--bg-header);
     backdrop-filter: blur(10px);
     border-right: 1px solid var(--border-color);
     box-shadow: 4px 0 20px var(--shadow);
@@ -53,7 +53,7 @@
 }
 
 .sidebar-nav a.active span {
-    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -68,7 +68,7 @@
     left: 1rem;
     right: 1rem;
     height: 2px;
-    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
     background-size: 200%;
     animation: lineGradient 2s ease-in-out infinite;
 }

@@ -11,7 +11,7 @@
     transition: none;
     z-index: 10000;
     max-width: 280px;
-    box-shadow: 0 0 0 2px #000, 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 2px #000000, 0 0 20px #000000;
 }
 
 .tooltip.visible {
@@ -27,7 +27,7 @@
     bottom: 0;
     border-radius: 10px;
     padding: 2px;
-    background: linear-gradient(90deg, #0D1A45, #1A2D5E, #0D1A45);
+    background: linear-gradient(90deg,  #1a3475, #0D1A45, #0D1A45, #1a3475);
     background-size: 200% 100%;
     animation: tooltipBorder 2s ease-in-out infinite;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

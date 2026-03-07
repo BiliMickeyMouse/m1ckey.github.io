@@ -5,7 +5,7 @@ footer {
     padding: 1rem 5%;
     text-align: center;
     border-top: 1px solid var(--border-color);
-    background: var(--bg-secondary);
+    background: var(--bg-header);
     backdrop-filter: blur(10px);
     box-shadow: 0 -4px 20px var(--shadow);
     z-index: 1000;

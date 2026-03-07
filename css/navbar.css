@@ -7,7 +7,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--bg-secondary);
+    background: var(--bg-header);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
@@ -24,13 +24,13 @@ nav {
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
-    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 10px rgba(82, 166, 255, 0.5);
-    animation: textGradient 5s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 150, 255, 1);
+    animation: titleGradient 2s linear infinite;
 }
 
 .nav-links {
@@ -48,12 +48,12 @@ nav {
 }
 
 .nav-links a.active {
-    background: linear-gradient(90deg, #52a6ff, #0048ff, #0048ff, #52a6ff);
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 10px rgba(82, 166, 255, 0.5);
+    text-shadow: 0 0 20px rgba(0, 123, 255, 1);
     animation: textGradient 2s ease-in-out infinite;
 }
 
@@ -63,7 +63,7 @@ nav {
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
-    text-shadow: 0 0 10px rgba(132, 191, 255, 0.5) !important;
+    text-shadow: 0 0 10px rgba(132, 191, 255, 1) !important;
     animation: hoverGradient 2s ease-in-out infinite !important;
 }
 
@@ -78,8 +78,8 @@ nav {
 }
 
 @keyframes titleGradient {
-    0% { background-position: 100% 0; }
-    100% { background-position: -100% 0; }
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
 }
 
 .nav-links a::after {

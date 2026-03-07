@@ -5,10 +5,12 @@
     
     const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
     const themeText = themeToggle.querySelector('.theme-toggle-text');
+    const videoBg = document.getElementById('videoBg');
 
     // 检测当前页面是否在子目录中
     const isInSubdirectory = window.location.pathname.includes('/Project/');
     const iconBasePath = isInSubdirectory ? '../Icon/' : 'Icon/';
+    const videoBasePath = isInSubdirectory ? '../' : '';
 
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
@@ -16,10 +18,13 @@
         if (theme === 'light') {
             themeIcon.src = iconBasePath + 'LightTheme.png';
             themeText.textContent = '浅色';
+            if (videoBg) videoBg.src = videoBasePath + 'BackgroundLight.mp4';
         } else {
             themeIcon.src = iconBasePath + 'DarkTheme.png';
             themeText.textContent = '深色';
+            if (videoBg) videoBg.src = videoBasePath + 'BackgroundDark.mp4';
         }
+        if (videoBg) videoBg.play();
     }
 
     // 初始化主题
