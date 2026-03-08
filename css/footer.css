@@ -1,11 +1,13 @@
 /* 页脚 */
 footer {
-    position: relative;
-    width: 100%;
-    padding: 1rem 5%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.6rem 5%;
     text-align: center;
     border-top: 1px solid var(--border-color);
-    background: var(--bg-header);
+    background: var(--bg-footer);
     backdrop-filter: blur(10px);
     box-shadow: 0 -4px 20px var(--shadow);
     z-index: 1000;
@@ -23,24 +25,24 @@ footer {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex: 1;
 }
 
 .social-links a {
     color: var(--text-secondary);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
     color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 footer p {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     flex: 1;
     text-align: left;
 }

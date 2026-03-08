@@ -5,20 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>项目 - M1ckey</title>
     <style>
-        @font-face {
-            font-family: 'MinecraftAE';
-            src: url('Font/MinecraftAE.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'MinecraftBold';
-            src: url('Font/MinecraftBold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-        }
-
         /* 主内容区 */
         main {
             min-height: 100vh;
@@ -52,6 +38,12 @@
         .project-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+        }
+
+        .project-icon img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
         }
 
         .project-card h3 {
@@ -105,11 +97,13 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/logo.css">
     <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/tooltip.css">
 </head>
@@ -121,7 +115,7 @@
     <main>
         <div class="project-grid">
             <div class="project-card">
-                <div class="project-icon"><img src="Icon/ProjectMinecraftResourcePack.png" alt="Minecraft 资源包" style="width: 64px; height: 64px; object-fit: contain;"></div>
+                <div class="project-icon"><img src="Icon/ProjectMinecraftResourcePack.png" alt="Minecraft 资源包"></div>
                 <h3>Minecraft 资源包</h3>
                 <p>自定义 Minecraft 材质包，包含独特的视觉风格和优化的游戏体验。</p>
                 <div class="project-tags">
@@ -133,7 +127,7 @@
             </div>
 
             <div class="project-card">
-                <div class="project-icon"><img src="Icon/ProjectPersonalWebsite.png" alt="个人网站" style="width: 64px; height: 64px; object-fit: contain;"></div>
+                <div class="project-icon"><img src="Icon/ProjectPersonalWebsite.png" alt="个人网站"></div>
                 <h3>个人网站</h3>
                 <p>这个网站本身就是一个项目！现代化个人主页。</p>
                 <div class="project-tags">
@@ -158,22 +152,15 @@
             let left = mouseX + 15;
             let top = mouseY - tooltip.offsetHeight - 10;
 
-            // 右边界检测
             if (left + tooltip.offsetWidth > window.innerWidth) {
                 left = mouseX - tooltip.offsetWidth - 15;
             }
-
-            // 左边界检测
             if (left < 0) {
                 left = 10;
             }
-
-            // 上边界检测
             if (top < 0) {
                 top = mouseY + 20;
             }
-
-            // 下边界检测
             if (top + tooltip.offsetHeight > window.innerHeight) {
                 top = window.innerHeight - tooltip.offsetHeight - 10;
             }

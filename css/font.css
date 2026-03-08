@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'MinecraftAE';
+    src: url('../Font/MinecraftAE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MinecraftBold';
+    src: url('../Font/MinecraftBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}

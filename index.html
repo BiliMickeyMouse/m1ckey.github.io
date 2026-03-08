@@ -5,20 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主页 - M1ckey</title>
     <style>
-        @font-face {
-            font-family: 'MinecraftAE';
-            src: url('Font/MinecraftAE.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'MinecraftBold';
-            src: url('Font/MinecraftBold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-        }
-
         /* 主内容区 */
         main {
             min-height: 100vh;
@@ -121,6 +107,12 @@
             line-height: 1.6;
         }
 
+        .card-icon img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
         /* 响应式 */
         @media (max-width: 768px) {
             .hero h1 {
@@ -136,10 +128,12 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/logo.css">
     <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/tooltip.css">
 </head>
@@ -160,17 +154,17 @@
 
         <div class="cards" id="about">
             <div class="card">
-                <div class="card-icon"><img src="Icon/IndexDesign.png" alt="设计" style="width: 48px; height: 48px; object-fit: contain;"></div>
+                <div class="card-icon"><img src="Icon/IndexDesign.png" alt="设计"></div>
                 <h3>设计</h3>
                 <p>追求简洁优雅的视觉体验，创造令人愉悦的用户界面。</p>
             </div>
             <div class="card">
-                <div class="card-icon"><img src="Icon/IndexDevelop.png" alt="开发" style="width: 48px; height: 48px; object-fit: contain;"></div>
+                <div class="card-icon"><img src="Icon/IndexDevelop.png" alt="开发"></div>
                 <h3>开发</h3>
                 <p>热爱编程，持续学习新技术，将创意转化为现实。</p>
             </div>
             <div class="card">
-                <div class="card-icon"><img src="Icon/IndexInnovation.png" alt="创新" style="width: 48px; height: 48px; object-fit: contain;"></div>
+                <div class="card-icon"><img src="Icon/IndexInnovation.png" alt="创新"></div>
                 <h3>创新</h3>
                 <p>不断探索新领域，挑战自我，追求卓越。</p>
             </div>
@@ -188,22 +182,15 @@
             let left = mouseX + 15;
             let top = mouseY - tooltip.offsetHeight - 10;
 
-            // 右边界检测
             if (left + tooltip.offsetWidth > window.innerWidth) {
                 left = mouseX - tooltip.offsetWidth - 15;
             }
-
-            // 左边界检测
             if (left < 0) {
                 left = 10;
             }
-
-            // 上边界检测
             if (top < 0) {
                 top = mouseY + 20;
             }
-
-            // 下边界检测
             if (top + tooltip.offsetHeight > window.innerHeight) {
                 top = window.innerHeight - tooltip.offsetHeight - 10;
             }

@@ -7,7 +7,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--bg-header);
+    background: var(--bg-navbar);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
@@ -58,7 +58,7 @@ nav {
 }
 
 .nav-links a:hover {
-    background: linear-gradient(90deg, #84bfff, var(--text-primary), var(--text-primary), #84bfff) !important;
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff) !important;
     background-size: 200% !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
@@ -89,7 +89,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #84bfff, var(--text-primary), var(--text-primary), #84bfff);
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
     background-size: 200%;
     box-shadow: 0 0 8px rgba(132, 191, 255, 0.6);
     transition: width 0.3s ease;
@@ -101,7 +101,7 @@ nav {
 }
 
 .nav-links a:hover::after {
-    background: linear-gradient(90deg, #84bfff, var(--text-primary), var(--text-primary), #84bfff) !important;
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff) !important;
     background-size: 200% !important;
     animation: lineGradient 2s ease-in-out infinite !important;
 }

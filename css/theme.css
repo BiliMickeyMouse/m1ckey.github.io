@@ -10,9 +10,13 @@
     --bg-primary: #0D142A;
     --bg-secondary: rgba(0, 0, 0, 0.9);
     --bg-header: rgba(0, 0, 0, 0.5);
+    --bg-navbar: rgba(0, 0, 0, 0.25);
+    --bg-footer: rgba(0, 0, 0, 0.25);
     --bg-card: rgba(255, 255, 255, 0.15);
-    --bg-card-hover: rgba(255, 255, 255, 0.15);
-    --text-primary: #ffffff;
+    --bg-card-hover: rgba(0, 0, 0, 0.15);
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.15);
+    --sidebar-hover-text: var(--text-secondary);
+    --text-primary: #000000;
     --text-secondary: #b8b8d1;
     --text-muted: #666;
     --border-color: rgba(255, 255, 255, 0.1);
@@ -27,8 +31,12 @@
     --bg-primary: rgba(255, 255, 255, 0.9);
     --bg-secondary: rgba(255, 255, 255, 0.5);
     --bg-header: rgba(245, 245, 247, 0.5);
+    --bg-navbar: rgba(245, 245, 247, 0.25);
+    --bg-footer: rgba(245, 245, 247, 0.25);
     --bg-card: rgba(255, 255, 255, 0.1);
-    --bg-card-hover: rgba(0, 0, 0, 0.3);
+    --bg-card-hover: rgba(255, 255, 255, 0.3);
+    --sidebar-hover-bg: rgba(0, 0, 0, 0.1);
+    --sidebar-hover-text: var(--text-primary);
     --text-primary: #1a1a2e;
     --text-secondary: #4a4a6a;
     --text-muted: #888;
@@ -52,6 +60,7 @@
     transition: all 0.3s ease;
     color: var(--text-secondary);
     font-size: 0.9rem;
+    font-family: 'MinecraftAE', sans-serif;
 }
 
 .theme-toggle:hover {

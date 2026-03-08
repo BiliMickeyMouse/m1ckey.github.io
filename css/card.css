@@ -1,0 +1,277 @@
+/* ==================== 通用卡片样式 ==================== */
+
+.card,
+.project-card,
+.contact-card,
+.project-description,
+.resourcepack-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+
+.card:hover,
+.project-card:hover,
+.contact-card:hover,
+.project-description:hover,
+.resourcepack-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px var(--shadow);
+    transform: translateY(-10px);
+}
+
+/* 卡片渐变边框效果 */
+.card,
+.project-card,
+.contact-card,
+.project-description,
+.resourcepack-card {
+    position: relative;
+}
+
+.card::before,
+.project-card::before,
+.contact-card::before,
+.project-description::before,
+.resourcepack-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(90deg, transparent, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.card:hover::before,
+.project-card:hover::before,
+.contact-card:hover::before,
+.project-description:hover::before,
+.resourcepack-card:hover::before {
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
+    background-size: 200%;
+    animation: borderGradient 2s linear infinite;
+    box-shadow: 0 0 30px rgba(0, 150, 255, 1),
+                0 0 60px rgba(0, 150, 255, 0.5),
+                0 0 90px rgba(0, 150, 255, 0.3);
+}
+
+/* 卡片标题渐变效果 */
+.card h3,
+.project-card h3,
+.contact-card h3,
+.project-description h3,
+.resourcepack-card h3 {
+    color: #7CABFF;
+    transition: all 0.5s ease;
+}
+
+.card:hover h3,
+.project-card:hover h3,
+.contact-card:hover h3,
+.project-description:hover h3,
+.resourcepack-card:hover h3 {
+    background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(0, 150, 255, 1))
+            drop-shadow(0 0 30px rgba(0, 150, 255, 1));
+    animation: cardTitleGradient 2s linear infinite;
+}
+
+/* ==================== 渐变动画 ==================== */
+
+@keyframes borderGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes cardTitleGradient {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ==================== 联系卡片品牌样式 ==================== */
+
+.contact-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+    color: #b8b8d1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    word-break: break-all;
+}
+
+/* ----- BiliBili 卡片 ----- */
+.contact-card.bilibili h3 {
+    color: #FF6699;
+}
+
+.contact-card.bilibili:hover {
+    border-color: #FF6699 !important;
+    box-shadow: 0 20px 40px rgba(255, 102, 153, 0.3) !important;
+}
+
+.contact-card.bilibili:hover::before {
+    background: linear-gradient(90deg, #ff99cc, #ff3366, #ff3366, #ff99cc) !important;
+    background-size: 200% !important;
+    animation: bilibiliBorderGradient 2s linear infinite !important;
+    box-shadow: 0 0 30px rgba(255, 102, 153, 1) !important;
+}
+
+.contact-card.bilibili:hover h3 {
+    background: linear-gradient(90deg, #ff99cc, #ff3366, #ff3366, #ff99cc);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(255, 102, 153, 1));
+    animation: bilibiliGradient 2s linear infinite;
+}
+
+@keyframes bilibiliBorderGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes bilibiliGradient {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ----- GitHub 卡片 ----- */
+.contact-card.github h3 {
+    color: #ffffff;
+}
+
+.contact-card.github:hover {
+    border-color: #ffffff !important;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3) !important;
+}
+
+.contact-card.github:hover::before {
+    background: linear-gradient(90deg, #ffffff, #cccccc, #cccccc, #ffffff) !important;
+    background-size: 200% !important;
+    animation: githubBorderGradient 2s linear infinite !important;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1) !important;
+}
+
+.contact-card.github:hover h3 {
+    background: linear-gradient(90deg, #ffffff, #cccccc, #cccccc, #ffffff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+    animation: githubGradient 2s linear infinite;
+}
+
+@keyframes githubBorderGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes githubGradient {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ----- Discord 卡片 ----- */
+.contact-card.discord h3 {
+    color: #5865F2;
+}
+
+.contact-card.discord:hover {
+    border-color: #5865F2 !important;
+    box-shadow: 0 20px 40px rgba(88, 101, 242, 0.3) !important;
+}
+
+.contact-card.discord:hover::before {
+    background: linear-gradient(90deg, #7289da, #5865F2, #5865F2, #7289da) !important;
+    background-size: 200% !important;
+    animation: discordBorderGradient 2s linear infinite !important;
+    box-shadow: 0 0 30px rgba(88, 101, 242, 1) !important;
+}
+
+.contact-card.discord:hover h3 {
+    background: linear-gradient(90deg, #7289da, #5865F2, #5865F2, #7289da);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(88, 101, 242, 1));
+    animation: discordGradient 2s linear infinite;
+}
+
+@keyframes discordBorderGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes discordGradient {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ----- QQ 卡片 ----- */
+.contact-card.qq h3 {
+    color: #12B7F5;
+}
+
+.contact-card.qq:hover {
+    border-color: #12B7F5 !important;
+    box-shadow: 0 20px 40px rgba(18, 183, 245, 0.3) !important;
+}
+
+.contact-card.qq:hover::before {
+    background: linear-gradient(90deg, #4dd0f7, #12B7F5, #12B7F5, #4dd0f7) !important;
+    background-size: 200% !important;
+    animation: qqBorderGradient 2s linear infinite !important;
+    box-shadow: 0 0 30px rgba(18, 183, 245, 1) !important;
+}
+
+.contact-card.qq:hover h3 {
+    background: linear-gradient(90deg, #4dd0f7, #12B7F5, #12B7F5, #4dd0f7);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(18, 183, 245, 1));
+    animation: qqGradient 2s linear infinite;
+}
+
+@keyframes qqBorderGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+@keyframes qqGradient {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}

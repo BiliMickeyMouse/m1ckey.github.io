@@ -5,20 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft 资源包 - M1ckey</title>
     <style>
-        @font-face {
-            font-family: 'MinecraftAE';
-            src: url('../Font/MinecraftAE.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'MinecraftBold';
-            src: url('../Font/MinecraftBold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-        }
-
         /* 主内容区 */
         main {
             min-height: 100vh;
@@ -37,7 +23,13 @@
         /* 资源包列表 */
         .resourcepack-list {
             width: 100%;
-            max-width: 900px;
+            max-width: 1400px;
+        }
+
+        #resourcepackGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .back-link {
@@ -112,7 +104,7 @@
         }
 
         .resourcepack-info p {
-            color: #b8b8d1;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 0.8rem;
@@ -126,11 +118,15 @@
         }
 
         .tag {
-            background: rgba(124, 171, 255, 0.2);
-            color: #7CABFF;
+            background: rgba(124, 172, 255, 0.25);
+            color: var(--accent);
             padding: 0.25rem 0.7rem;
             border-radius: 20px;
             font-size: 0.75rem;
+        }
+
+        [data-theme="light"] .tag {
+            color: #0073ff;
         }
 
         .resourcepack-meta {
@@ -138,13 +134,26 @@
             flex-wrap: wrap;
             gap: 1rem;
             font-size: 0.85rem;
-            color: #888;
+            color: #b8b8d1;
         }
 
         .resourcepack-meta span {
             display: flex;
             align-items: center;
             gap: 0.4rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.3rem 0.6rem;
+            border-radius: 8px;
+            color: #e0e0e0;
+        }
+
+        [data-theme="light"] .resourcepack-meta {
+            color: #4a4a6a;
+        }
+
+        [data-theme="light"] .resourcepack-meta span {
+            background: rgba(255, 255, 255, 0.5);
+            color: #333;
         }
 
         .resourcepack-meta img {
@@ -170,7 +179,63 @@
             transform: translateX(5px);
         }
 
+        /* 搜索框 */
+        .search-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: 'MinecraftAE', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(124, 171, 255, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
         /* 响应式 */
+        @media (max-width: 1100px) {
+            #resourcepackGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .resourcepack-card {
                 flex-direction: column;
@@ -184,11 +249,13 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/logo.css">
     <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/card.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/tooltip.css">
 </head>
@@ -205,6 +272,12 @@
                 <p>浏览所有可用的 Minecraft 资源包，点击查看详情或下载</p>
             </div>
 
+            <div class="search-container">
+                <img class="search-icon" src="../Icon/ProjectMinecraftResourceSearch.png" alt="搜索">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜索材质包名称或标签...">
+            </div>
+
+            <div id="resourcepackGrid">
             <div class="resourcepack-card">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\少羽牛逼\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
@@ -357,7 +430,11 @@
                     <a href="../Download\ProjectMinecraftResourcePack\guiwow Short Weapons\guiwow Short Weapons.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
+            </div>
 
+            <div id="noResults" class="no-results" style="display: none;">
+                未找到匹配的资源包
+            </div>
 
     </main>
 
@@ -413,6 +490,36 @@
                 mouseY = e.clientY;
                 updatePosition();
             });
+        });
+
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        const resourcepackGrid = document.getElementById('resourcepackGrid');
+        const noResults = document.getElementById('noResults');
+        const cards = resourcepackGrid.querySelectorAll('.resourcepack-card');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                const matchesTitle = title.includes(searchTerm);
+                const matchesTags = tags.some(tag => tag.includes(searchTerm));
+                const matchesDescription = description.includes(searchTerm);
+
+                if (searchTerm === '' || matchesTitle || matchesTags || matchesDescription) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         });
     </script>
 </body>

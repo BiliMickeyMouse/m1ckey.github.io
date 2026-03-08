@@ -44,8 +44,8 @@
 }
 
 .sidebar-nav a:hover {
-    background: var(--bg-card-hover);
-    color: var(--text-primary);
+    background: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
 }
 
 .sidebar-nav a.active {
