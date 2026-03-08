@@ -25,12 +25,12 @@ nav {
     font-weight: 500;
     margin: 0;
     background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
-    background-size: 200%;
+    background-size: 400% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 20px rgba(0, 150, 255, 1);
-    animation: titleGradient 2s linear infinite;
+    filter: drop-shadow 0 0 40px rgba(0, 123, 255, 1);
+    animation: logoGradient 5s linear infinite;
 }
 
 .nav-links {

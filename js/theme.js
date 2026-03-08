@@ -10,7 +10,7 @@
     // 检测当前页面是否在子目录中
     const isInSubdirectory = window.location.pathname.includes('/Project/');
     const iconBasePath = isInSubdirectory ? '../Icon/' : 'Icon/';
-    const videoBasePath = isInSubdirectory ? '../' : '';
+    const videoBasePath = isInSubdirectory ? '../Background/' : 'Background/';
 
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);

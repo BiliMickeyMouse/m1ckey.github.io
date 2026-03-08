@@ -11,3 +11,45 @@
     font-weight: bold;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'MinecraftBoldItalic';
+    src: url('../Font/MinecraftBoldItalic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'MinecraftItalic';
+    src: url('../Font/MinecraftItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'MinecraftRegular';
+    src: url('../Font/MinecraftRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MinecrafterReg';
+    src: url('../Font/Minecrafter.Reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MinecrafterAlt';
+    src: url('../Font/Minecrafter.Alt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MinecraftTen';
+    src: url('../Font/MinecraftTen.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

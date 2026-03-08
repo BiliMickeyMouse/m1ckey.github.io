@@ -39,7 +39,7 @@
             color: #7CABFF;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             margin-bottom: 2rem;
         }
 
@@ -69,28 +69,98 @@
             display: flex;
             gap: 1.5rem;
             align-items: flex-start;
+            position: relative;
         }
 
         .resourcepack-card:hover {
             transform: translateY(-5px);
         }
 
+        .resourcepack-date {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.35rem 0.6rem;
+            border-radius: 6px;
+            font-family: 'MinecraftTen', sans-serif;
+            font-size: 1.25rem;
+            color: #e0e0e0;
+            line-height: 1;
+        }
+
+        .resourcepack-date span {
+            display: inline-block;
+            transform: translateY(-3px);
+        }
+
+        [data-theme="light"] .resourcepack-date {
+            background: rgba(255, 255, 255, 0.5);
+            color: #333;
+        }
+
+        .resourcepack-date img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .resourcepack-icon-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
         .resourcepack-icon {
             width: 80px;
             height: 80px;
             border-radius: 12px;
-            background: rgba(124, 171, 255, 0.1);
+            background: rgba(124, 171, 255, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
-            flex-shrink: 0;
         }
 
         .resourcepack-icon img {
             width: 64px;
             height: 64px;
             object-fit: contain;
+        }
+
+        .resourcepack-source {
+            font-family: 'MinecraftAE', sans-serif;
+            font-size: 1.2rem;
+            padding: 0.3rem 0.5rem;
+            border-radius: 12px;
+            width: 80px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .resourcepack-source.self-made {
+            background: rgba(0, 200, 100, 0.3);
+            color: #4ade80;
+        }
+
+        .resourcepack-source.reposted {
+            background: rgba(0, 150, 255, 0.3);
+            color: #7CABFF;
+        }
+
+        [data-theme="light"] .resourcepack-source.self-made {
+            background: rgba(0, 150, 80, 0.2);
+            color: #00aa55;
+        }
+
+        [data-theme="light"] .resourcepack-source.reposted {
+            background: rgba(0, 100, 200, 0.2);
+            color: #0055cc;
         }
 
         .resourcepack-info {
@@ -170,7 +240,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             margin-top: 0.5rem;
         }
 
@@ -191,12 +261,16 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            color: var(--text-primary);
+            color: #ffffff;
             font-family: 'MinecraftAE', sans-serif;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+        }
+
+        [data-theme="light"] .search-input {
+            color: #000000;
         }
 
         .search-input:focus {
@@ -227,6 +301,101 @@
             padding: 3rem;
             color: var(--text-muted);
             font-size: 1.1rem;
+        }
+
+        /* 分页样式 */
+        .pagination {
+            position: fixed;
+            bottom: -60px;
+            left: calc(50% + 115px);
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            z-index: 999;
+            transition: bottom 0.4s ease;
+        }
+
+        .pagination.visible {
+            bottom: 75px;
+        }
+
+        .pagination button {
+            position: relative;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 12px;
+            background: var(--bg-card);
+            color: #7CABFF;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            font-family: 'MinecraftAE', sans-serif;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .pagination button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(90deg, transparent, transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+            background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: borderGradient 2s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 150, 255, 0.8), 0 0 30px rgba(0, 150, 255, 0.4);
+            filter: drop-shadow(0 0 8px rgba(48, 221, 255, 0.8));
+        }
+
+        .pagination button:hover:not(:disabled)::before {
+            background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
+            background-size: 200%;
+            animation: borderGradient 2s linear infinite;
+        }
+
+        @keyframes borderGradient {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .pagination button.active {
+            background: linear-gradient(135deg, #7CABFF, #5a9aff);
+            color: white;
+            box-shadow: 0 0 20px rgba(124, 171, 255, 0.5);
+        }
+
+        .pagination button.active::before {
+            background: linear-gradient(90deg, transparent, transparent);
+        }
+
+        .pagination button:disabled {
+            display: none;
+        }
+
+        [data-theme="light"] .pagination button {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="light"] .pagination button:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.7);
         }
 
         /* 响应式 */
@@ -274,11 +443,11 @@
 
             <div class="search-container">
                 <img class="search-icon" src="../Icon/ProjectMinecraftResourceSearch.png" alt="搜索">
-                <input type="text" id="searchInput" class="search-input" placeholder="搜索材质包名称或标签...">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜索名称、标签或日期(xxxx-xx-xx)...">
             </div>
 
             <div id="resourcepackGrid">
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-02-15" data-source="自制">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\少羽牛逼\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -294,12 +463,11 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 128x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-02-15</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\少羽牛逼\§l少§r§c§l羽§b牛逼.zip" class="resourcepack-link" data-tooltip="点击下载此资源包" target="_blank"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-02-10" data-source="转载">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\Block&White Pack\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -315,13 +483,12 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-02-10</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\Block&White Pack\Merryzz Black&White Pack.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
 
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-01-17" data-source="转载">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\Anxiety\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -337,13 +504,12 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-01-17</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\Anxiety\!    §8Anxiety §f16x.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
 
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-01-10" data-source="转载">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\plasma\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -359,13 +525,12 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-01-10</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\plasma\!     §bplasma §8[§f16§bx§8].zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
 
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-01-09" data-source="转载">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\OCN Revamp\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -381,13 +546,12 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 32x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-01-09</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\OCN Revamp\OCN [32x] Revamp.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
 
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-01-09" data-source="转载">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\1.14\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -403,13 +567,12 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-01-09</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\1.14\1.14.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
 
-            <div class="resourcepack-card">
+            <div class="resourcepack-card" data-date="2026-01-09" data-source="转载">
                 <div class="resourcepack-icon">
                     <img src="../Download\ProjectMinecraftResourcePack\guiwow Short Weapons\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
                 </div>
@@ -425,9 +588,96 @@
                     <div class="resourcepack-meta">
                         <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
                         <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
-                        <span><img src="../Icon/ProjectMinecraftResourcePackDate.png" alt="更新日期"> 更新日期: 2026-01-09</span>
                     </div>
                     <a href="../Download\ProjectMinecraftResourcePack\guiwow Short Weapons\guiwow Short Weapons.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+            <div class="resourcepack-card" data-date="2023-01-03" data-source="自制">
+                <div class="resourcepack-icon">
+                    <img src="../Download\ProjectMinecraftResourcePack\Mickey Mouse Font Pack\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Mickey Mouse Font Pack</h3>
+                    <p>#</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">#</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 全版本</span>
+                    </div>
+                    <a href="../Download\ProjectMinecraftResourcePack\Mickey Mouse Font Pack\§lMickey Mouse Font Pack.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+            <div class="resourcepack-card" data-date="2022-07-08" data-source="自制">
+                <div class="resourcepack-icon">
+                    <img src="../Download\ProjectMinecraftResourcePack\Mickey Mouse PVP Pack v3\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Mickey Mouse PVP Pack v3</h3>
+                    <p>#</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">#</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
+                    </div>
+                    <a href="../Download\ProjectMinecraftResourcePack\Mickey Mouse PVP Pack v3\§lPvP Pack §b§l[x16][FPS ] §4§lv3.0.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+            <div class="resourcepack-card" data-date="2022-09-08" data-source="自制">
+                <div class="resourcepack-icon">
+                    <img src="../Download\ProjectMinecraftResourcePack\Mickey Mouse PVP Pack v4\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Mickey Mouse PVP Pack v4</h3>
+                    <p>#</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">#</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
+                    </div>
+                    <a href="../Download\ProjectMinecraftResourcePack\Mickey Mouse PVP Pack v4\§lMickey Mouse PvP Pack §b§l[x16] §4§lv4.0.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+            <div class="resourcepack-card" data-date="2023-01-03" data-source="自制">
+                <div class="resourcepack-icon">
+                    <img src="../Download\ProjectMinecraftResourcePack\Mickey Mouse PVP Pack v5\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Mickey Mouse PVP Pack v5</h3>
+                    <p>#</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">#</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 1.8</span>
+                        <span><img src="../Icon/ProjectMinecraftResourcePackResolution.png" alt="分辨率"> 分辨率: 16x</span>
+                    </div>
+                    <a href="../Download\ProjectMinecraftResourcePack\Mickey Mouse PVP Pack v5\§lMickey Mouse PvP Pack §b§l[x16] §4§lv5.0.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
+                </div>
+            </div>
+
+            <div class="resourcepack-card" data-date="2023-01-03" data-source="自制">
+                <div class="resourcepack-icon">
+                    <img src="../Download\ProjectMinecraftResourcePack\Mickey Mouse Sound Pack\ProjectMinecraftResourcePackIcon.png" alt="资源包图标">
+                </div>
+                <div class="resourcepack-info">
+                    <h3>Mickey Mouse Sound Pack</h3>
+                    <p>#</p>
+                    <div class="resourcepack-tags">
+                        <span class="tag">#</span>
+                    </div>
+                    <div class="resourcepack-meta">
+                        <span><img src="../Icon/ProjectMinecraftResourcePackVersion.png" alt="版本"> 版本: 全版本</span>
+                    </div>
+                    <a href="../Download\ProjectMinecraftResourcePack\Mickey Mouse Sound Pack\§lMickey Mouse Sound Pack.zip" class="resourcepack-link" data-tooltip="点击下载此资源包"><img src="../Icon/ProjectMinecraftResourcePackDownload.png" alt="下载" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;">下载</a>
                 </div>
             </div>
             </div>
@@ -435,6 +685,8 @@
             <div id="noResults" class="no-results" style="display: none;">
                 未找到匹配的资源包
             </div>
+
+            <div class="pagination" id="pagination"></div>
 
     </main>
 
@@ -496,31 +748,209 @@
         const searchInput = document.getElementById('searchInput');
         const resourcepackGrid = document.getElementById('resourcepackGrid');
         const noResults = document.getElementById('noResults');
-        const cards = resourcepackGrid.querySelectorAll('.resourcepack-card');
+        const paginationContainer = document.getElementById('pagination');
+        let cards = Array.from(resourcepackGrid.querySelectorAll('.resourcepack-card'));
+        let currentPage = 1;
+        const itemsPerPage = 6;
+        let filteredCards = cards;
+
+        // 按时间排序（最新在前）
+        function sortByDate() {
+            cards.sort((a, b) => {
+                const dateA = new Date(a.dataset.date);
+                const dateB = new Date(b.dataset.date);
+                return dateB - dateA; // 降序，最新在前
+            });
+            cards.forEach(card => resourcepackGrid.appendChild(card));
+        }
+
+        // 自动填充更新日期显示（显示在卡片右上角）
+        function autoFillDates() {
+            cards.forEach(card => {
+                const date = card.dataset.date;
+                if (date) {
+                    const dateDiv = document.createElement('div');
+                    dateDiv.className = 'resourcepack-date';
+                    dateDiv.innerHTML = '<img src="../Icon/ProjectMinecraftResourcePackDate.webp" alt="更新日期"><span>' + date + '</span>';
+                    card.appendChild(dateDiv);
+                }
+            });
+        }
+
+        // 自动填充来源标签（显示在图标下方）
+        function autoFillSource() {
+            cards.forEach(card => {
+                const source = card.dataset.source;
+                if (source) {
+                    const iconDiv = card.querySelector('.resourcepack-icon');
+                    if (iconDiv) {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'resourcepack-icon-wrapper';
+                        iconDiv.parentNode.insertBefore(wrapper, iconDiv);
+                        wrapper.appendChild(iconDiv);
+
+                        const sourceDiv = document.createElement('div');
+                        const isSelfMade = source === '自制';
+                        sourceDiv.className = 'resourcepack-source ' + (isSelfMade ? 'self-made' : 'reposted');
+                        const iconSrc = isSelfMade ? '../Icon/ProjectMinecraftResourceSelfMade.webp' : '../Icon/ProjectMinecraftResourceReprint.webp';
+                        sourceDiv.innerHTML = '<img src="' + iconSrc + '" alt="' + source + '" style="width: 18px; height: 18px; object-fit: contain; vertical-align: middle; margin-right: 4px;">' + source;
+                        wrapper.appendChild(sourceDiv);
+                    }
+                }
+            });
+        }
+
+        // 渲染分页按钮
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+            paginationContainer.innerHTML = '';
+
+            paginationContainer.style.display = 'flex';
+
+            // 上一页按钮
+            const prevBtn = document.createElement('button');
+            prevBtn.textContent = '上一页';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+            paginationContainer.appendChild(prevBtn);
+
+            // 页码按钮
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            if (startPage > 1) {
+                const firstBtn = document.createElement('button');
+                firstBtn.textContent = '1';
+                firstBtn.addEventListener('click', () => goToPage(1));
+                paginationContainer.appendChild(firstBtn);
+
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.textContent = '...';
+                    dots.style.color = 'var(--text-muted)';
+                    dots.style.padding = '0 0.5rem';
+                    paginationContainer.appendChild(dots);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                pageBtn.className = i === currentPage ? 'active' : '';
+                pageBtn.addEventListener('click', () => goToPage(i));
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.textContent = '...';
+                    dots.style.color = 'var(--text-muted)';
+                    dots.style.padding = '0 0.5rem';
+                    paginationContainer.appendChild(dots);
+                }
+
+                const lastBtn = document.createElement('button');
+                lastBtn.textContent = totalPages;
+                lastBtn.addEventListener('click', () => goToPage(totalPages));
+                paginationContainer.appendChild(lastBtn);
+            }
+
+            // 下一页按钮
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = '下一页';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        // 跳转到指定页
+        function goToPage(page) {
+            currentPage = page;
+            renderCards();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 渲染当前页的卡片
+        function renderCards() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            cards.forEach(card => {
+                card.style.display = 'none';
+            });
+
+            filteredCards.slice(startIndex, endIndex).forEach(card => {
+                card.style.display = '';
+            });
+
+            noResults.style.display = filteredCards.length === 0 ? 'block' : 'none';
+        }
+
+        // 页面加载时自动排序、填充日期和来源
+        sortByDate();
+        autoFillDates();
+        autoFillSource();
+        renderCards();
+        renderPagination();
 
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
-            let visibleCount = 0;
 
-            cards.forEach(card => {
+            filteredCards = cards.filter(card => {
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
                 const description = card.querySelector('p').textContent.toLowerCase();
+                const date = card.dataset.date || '';
 
                 const matchesTitle = title.includes(searchTerm);
                 const matchesTags = tags.some(tag => tag.includes(searchTerm));
                 const matchesDescription = description.includes(searchTerm);
+                const matchesDate = date.includes(searchTerm);
 
-                if (searchTerm === '' || matchesTitle || matchesTags || matchesDescription) {
-                    card.style.display = '';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
+                return searchTerm === '' || matchesTitle || matchesTags || matchesDescription || matchesDate;
             });
 
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            currentPage = 1;
+            renderCards();
+            renderPagination();
         });
+
+        // 分页按钮滑入滑出效果
+        let paginationHideTimeout;
+
+        function showPagination() {
+            clearTimeout(paginationHideTimeout);
+            paginationContainer.classList.add('visible');
+        }
+
+        function hidePagination() {
+            paginationHideTimeout = setTimeout(() => {
+                if (!paginationContainer.matches(':hover')) {
+                    paginationContainer.classList.remove('visible');
+                }
+            }, 3000);
+        }
+
+        // 监听鼠标移动到底部区域
+        document.addEventListener('mousemove', function(e) {
+            const triggerZone = window.innerHeight - 150; // 距离底部150px内触发
+            if (e.clientY > triggerZone) {
+                showPagination();
+            } else if (!paginationContainer.matches(':hover')) {
+                hidePagination();
+            }
+        });
+
+        // 鼠标悬停在分页按钮上时保持显示
+        paginationContainer.addEventListener('mouseenter', showPagination);
+        paginationContainer.addEventListener('mouseleave', hidePagination);
     </script>
 </body>
 </html>

@@ -8,10 +8,11 @@
     background: var(--bg-card);
     border-radius: 16px;
     padding: 2rem;
-    border: 1px solid var(--border-color);
+    border: none;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: all 0.5s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 1),
 }
 
 .card:hover,
@@ -20,8 +21,7 @@
 .project-description:hover,
 .resourcepack-card:hover {
     background: var(--bg-card-hover);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px var(--shadow);
+    box-shadow: 0 0 40px rgba(0, 150, 255, 1);
     transform: translateY(-10px);
 }
 
@@ -61,9 +61,7 @@
     background: linear-gradient(90deg, #30ddff, #001aff, #001aff, #30ddff);
     background-size: 200%;
     animation: borderGradient 2s linear infinite;
-    box-shadow: 0 0 30px rgba(0, 150, 255, 1),
-                0 0 60px rgba(0, 150, 255, 0.5),
-                0 0 90px rgba(0, 150, 255, 0.3);
+    box-shadow: 0 0 0px rgba(0, 150, 255, 1),
 }
 
 /* 卡片标题渐变效果 */
@@ -135,14 +133,14 @@
 
 .contact-card.bilibili:hover {
     border-color: #FF6699 !important;
-    box-shadow: 0 20px 40px rgba(255, 102, 153, 0.3) !important;
+    box-shadow: 0 0 40px rgba(255, 102, 153, 1) !important;
 }
 
 .contact-card.bilibili:hover::before {
     background: linear-gradient(90deg, #ff99cc, #ff3366, #ff3366, #ff99cc) !important;
     background-size: 200% !important;
     animation: bilibiliBorderGradient 2s linear infinite !important;
-    box-shadow: 0 0 30px rgba(255, 102, 153, 1) !important;
+    box-shadow: 0 0 40px rgba(255, 102, 153, 1) !important;
 }
 
 .contact-card.bilibili:hover h3 {
@@ -151,7 +149,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(255, 102, 153, 1));
+    filter: drop-shadow(0 0 20px rgba(255, 102, 153, 1));
     animation: bilibiliGradient 2s linear infinite;
 }
 
@@ -172,14 +170,14 @@
 
 .contact-card.github:hover {
     border-color: #ffffff !important;
-    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 1) !important;
 }
 
 .contact-card.github:hover::before {
     background: linear-gradient(90deg, #ffffff, #cccccc, #cccccc, #ffffff) !important;
     background-size: 200% !important;
     animation: githubBorderGradient 2s linear infinite !important;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 1) !important;
 }
 
 .contact-card.github:hover h3 {
@@ -188,7 +186,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 1));
     animation: githubGradient 2s linear infinite;
 }
 
@@ -209,14 +207,14 @@
 
 .contact-card.discord:hover {
     border-color: #5865F2 !important;
-    box-shadow: 0 20px 40px rgba(88, 101, 242, 0.3) !important;
+    box-shadow: 0 0 40px rgba(88, 101, 242, 1) !important;
 }
 
 .contact-card.discord:hover::before {
     background: linear-gradient(90deg, #7289da, #5865F2, #5865F2, #7289da) !important;
     background-size: 200% !important;
     animation: discordBorderGradient 2s linear infinite !important;
-    box-shadow: 0 0 30px rgba(88, 101, 242, 1) !important;
+    box-shadow: 0 0 40px rgba(88, 101, 242, 1) !important;
 }
 
 .contact-card.discord:hover h3 {
@@ -225,7 +223,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(88, 101, 242, 1));
+    filter: drop-shadow(0 0 40px rgba(88, 101, 242, 1));
     animation: discordGradient 2s linear infinite;
 }
 
@@ -246,14 +244,14 @@
 
 .contact-card.qq:hover {
     border-color: #12B7F5 !important;
-    box-shadow: 0 20px 40px rgba(18, 183, 245, 0.3) !important;
+    box-shadow: 0 0 40px rgba(18, 183, 245, 1) !important;
 }
 
 .contact-card.qq:hover::before {
     background: linear-gradient(90deg, #4dd0f7, #12B7F5, #12B7F5, #4dd0f7) !important;
     background-size: 200% !important;
     animation: qqBorderGradient 2s linear infinite !important;
-    box-shadow: 0 0 30px rgba(18, 183, 245, 1) !important;
+    box-shadow: 0 0 40px rgba(18, 183, 245, 1) !important;
 }
 
 .contact-card.qq:hover h3 {
@@ -262,7 +260,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 20px rgba(18, 183, 245, 1));
+    filter: drop-shadow(0 0 40px rgba(18, 183, 245, 1));
     animation: qqGradient 2s linear infinite;
 }
 

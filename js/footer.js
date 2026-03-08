@@ -10,8 +10,8 @@
                 <div class="footer-content">
                     <p>M1ckey_</p>
                     <div class="social-links">
-                        <a href="https://github.com/BiliMickeyMouse" data-tooltip="查看我的 GitHub 主页"><img src="${basePath}Icon/ContactMeGithub.png" alt="GitHub" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle;"></a>
-                        <a href="https://space.bilibili.com/3690998569895956" data-tooltip="访问我的哔哩哔哩主页"><img src="${basePath}Icon/ContactMeBilibili.png" alt="BiliBili" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle;"></a>
+                        <a href="https://github.com/BiliMickeyMouse" data-tooltip="查看我的 GitHub 主页"><img src="${basePath}Icon/ContactMeGithub.webp" alt="GitHub" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle;"></a>
+                        <a href="https://space.bilibili.com/3690998569895956" data-tooltip="访问我的哔哩哔哩主页"><img src="${basePath}Icon/ContactMeBilibili.webp" alt="BiliBili" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle;"></a>
                     </div>
                     <button class="theme-toggle" id="themeToggle" data-tooltip="切换主题">
                         <img class="theme-toggle-icon" src="${basePath}Icon/DarkTheme.png" alt="主题">
